@@ -16,13 +16,9 @@ app.use("/", router);
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 const PORT = process.env.PORT || 8000;
-const URL = process.env.MONGODB_URL || `mongodb://${username}:${password}@ac-vcnzpyk-shard-00-00.x4r6ano.mongodb.net:27017,ac-vcnzpyk-shard-00-01.x4r6ano.mongodb.net:27017,ac-vcnzpyk-shard-00-02.x4r6ano.mongodb.net:27017/?ssl=true&replicaSet=atlas-l5leoa-shard-0&authSource=admin&retryWrites=true&w=majority`;
+const URL = `mongodb://${username}:${password}@ac-vcnzpyk-shard-00-00.x4r6ano.mongodb.net:27017,ac-vcnzpyk-shard-00-01.x4r6ano.mongodb.net:27017,ac-vcnzpyk-shard-00-02.x4r6ano.mongodb.net:27017/?ssl=true&replicaSet=atlas-l5leoa-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
 
-
-if (process.env.NODE.ENV === 'production') {
-    app.use(express.static('client/build'));
-}
 
 connection(URL);
 app.listen(PORT, () => {

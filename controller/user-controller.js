@@ -22,7 +22,7 @@ export const userLogin = async (request, response) => {
         const username = request.body.username;
         const password = request.body.password;
         const existUser = await User.findOne({ username: username, password: password });
-        //console.log(username)
+        console.log(username)
         if (existUser) {
             return response.status(200).json({ data: existUser });
         } else {
