@@ -21,6 +21,12 @@ const URL = `mongodb://${username}:${password}@ac-vcnzpyk-shard-00-00.x4r6ano.mo
 
 
 connection(URL);
+
+//******************************** */
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static("client/build"));
+}
+
 app.listen(PORT, () => {
     console.log("listening at port 8000");
 });
